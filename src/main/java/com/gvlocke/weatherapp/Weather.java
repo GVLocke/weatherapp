@@ -70,6 +70,17 @@ public class Weather {
         return hourly;
     }
 
+    public String getCurrentWeather() {
+        return "Current Weather:\n" +
+                "Temperature (2m): " + this.current.getTemperature_2m() + " " + this.current_units.getTemperature_2m() + "\n" +
+                "Precipitation: " + this.current.getPrecipitation() + " " + this.current_units.getPrecipitation() + "\n" +
+                "Rain: " + this.current.getRain() + " " + this.current_units.getRain() + "\n" +
+                "Showers: " + this.current.getShowers() + " " + this.current_units.getShowers() + "\n" +
+                "Snowfall: " + this.current.getSnowfall() + " " + this.current_units.getSnowfall() + "\n" +
+                "Wind Speed (10m): " + this.current.getWindspeed_10m() + " " + this.current_units.getWindspeed_10m() + "\n" +
+                "Wind Direction (10m): " + this.current.getWinddirection_10m() + " " + this.current_units.getWinddirection_10m();
+    }
+
     @Override
     public String toString() {
         return "Weather{" +

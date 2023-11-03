@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4f963dd-b2a2-4c8d-bddc-81463b637afe" name="Changes" comment="Added README">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Current.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/CurrentUnits.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Forcastor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Geolocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Hourly.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/HourlyUnits.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Locator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Weather.java" afterDir="false" />
+    <list default="true" id="f4f963dd-b2a2-4c8d-bddc-81463b637afe" name="Changes" comment="whoops">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/DateFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/MainSceneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/gvlocke/weatherapp/MainScene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Current.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/WeatherApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Weather.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gvlocke/weatherapp/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +31,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Forcastor.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -70,6 +72,26 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="WeatherApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gvlocke.weatherapp.WeatherApp" />
+      <module name="weatherapp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gvlocke.weatherapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.WeatherApp" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,7 +100,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698990282852</updated>
-      <workItem from="1698990283846" duration="2119000" />
+      <workItem from="1698990283846" duration="4977000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -104,7 +126,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698990421743</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="We got back to where we were at">
+      <option name="closed" value="true" />
+      <created>1698992600301</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698992600301</updated>
+    </task>
+    <task id="LOCAL-00005" summary="whoops">
+      <option name="closed" value="true" />
+      <created>1698992632782</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698992632782</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +152,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Added README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added README" />
+    <MESSAGE value="We got back to where we were at" />
+    <MESSAGE value="whoops" />
+    <option name="LAST_COMMIT_MESSAGE" value="whoops" />
   </component>
 </project>

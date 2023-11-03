@@ -58,5 +58,19 @@ public class Current {
     public double getWinddirection_10m() {
         return winddirection_10m;
     }
+
+    @Override
+    public String toString() {
+        return "Current Weather:\n" +
+                "Time: " + time + "\n" +
+                "Interval: " + interval + "\n" +
+                "Temperature (2m): " + temperature_2m + "°C\n" +
+                "Precipitation: " + precipitation + " mm\n" +
+                "Rain: " + rain + " mm\n" +
+                "Showers: " + showers + " mm\n" +
+                "Snowfall: " + snowfall + " cm\n" +
+                "Windspeed (10m): " + windspeed_10m + " m/s\n" +
+                "Winddirection (10m): " + winddirection_10m + "°";
+    }
 }
 
