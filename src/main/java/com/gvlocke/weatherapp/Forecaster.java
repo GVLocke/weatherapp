@@ -14,7 +14,7 @@ import java.util.List;
 
 import org.apache.http.HttpEntity;
 
-public class Forcastor {
+public class Forecaster {
     public Weather getWeather() {
         // create a client object to send HTTP requests
         HttpClient httpClient = HttpClients.createDefault();

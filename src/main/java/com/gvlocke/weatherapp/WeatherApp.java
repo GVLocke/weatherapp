@@ -13,7 +13,7 @@ public class WeatherApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(WeatherApp.class.getResource("MainScene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         MainSceneController controller = fxmlLoader.getController();
-        controller.setWeather(new Forcastor().getWeather());
+        controller.setWeather(new Forecaster().getWeather());
         controller.setLocation(new Locator().getLocation());
         controller.displayTime();
         controller.displayLocation();
