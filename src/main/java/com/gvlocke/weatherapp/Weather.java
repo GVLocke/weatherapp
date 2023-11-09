@@ -71,6 +71,7 @@ public class Weather {
     }
 
     public String getCurrentWeather() {
+        // TODO: Turn Wind Direction Units to Cardinal Directions. The API can only return degrees.
         return "Current Weather:\n" +
                 "Temperature (2m): " + this.current.getTemperature_2m() + " " + this.current_units.getTemperature_2m() + "\n" +
                 "Precipitation: " + this.current.getPrecipitation() + " " + this.current_units.getPrecipitation() + "\n" +
