@@ -1,16 +1,16 @@
 package com.gvlocke.weatherapp;
 public class Weather {
-    private double latitude;
-    private double longitude;
-    private double generationtime_ms;
-    private int utc_offset_seconds;
-    private String timezone;
-    private String timezone_abbreviation;
-    private double elevation;
-    private CurrentUnits current_units;
-    private Current current;
-    private HourlyUnits hourly_units;
-    private Hourly hourly;
+    private final double latitude;
+    private final double longitude;
+    private final double generationtime_ms;
+    private final int utc_offset_seconds;
+    private final String timezone;
+    private final String timezone_abbreviation;
+    private final double elevation;
+    private final CurrentUnits current_units;
+    private final Current current;
+    private final HourlyUnits hourly_units;
+    private final Hourly hourly;
 
     public Weather(double latitude, double longitude, double generationtime_ms, int utc_offset_seconds, String timezone, String timezone_abbreviation, double elevation, CurrentUnits current_units, Current current, HourlyUnits hourly_units, Hourly hourly) {
         this.latitude = latitude;
@@ -78,8 +78,10 @@ public class Weather {
                 "Rain: " + this.current.getRain() + " " + this.current_units.getRain() + "\n" +
                 "Showers: " + this.current.getShowers() + " " + this.current_units.getShowers() + "\n" +
                 "Snowfall: " + this.current.getSnowfall() + " " + this.current_units.getSnowfall() + "\n" +
+                "Weather Code: " + this.current.getWeatherCodeString() + "\n" +
                 "Wind Speed (10m): " + this.current.getWindspeed_10m() + " " + this.current_units.getWindspeed_10m() + "\n" +
-                "Wind Direction (10m): " + this.current.getWinddirection_10m() + " " + this.current_units.getWinddirection_10m();
+                "Wind Direction (10m): " + this.current.getWinddirection_10m() + " " + this.current_units.getWinddirection_10m() + "\n" +
+                "Wind Gusts (10m): " + this.current.getWindgusts_10m() + " " + this.current_units.getWindgusts_10m();
     }
 
     @Override

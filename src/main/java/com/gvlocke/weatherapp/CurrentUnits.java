@@ -1,17 +1,19 @@
 package com.gvlocke.weatherapp;
 
 public class CurrentUnits {
-    private String time;
-    private String interval;
-    private String temperature_2m;
-    private String precipitation;
-    private String rain;
-    private String showers;
-    private String snowfall;
-    private String windspeed_10m;
-    private String winddirection_10m;
+    private final String time;
+    private final String interval;
+    private final String temperature_2m;
+    private final String precipitation;
+    private final String rain;
+    private final String showers;
+    private final String snowfall;
+    private final String weatherCode;
+    private final String windspeed_10m;
+    private final String winddirection_10m;
+    private final String windgusts_10m;
 
-    public CurrentUnits(String time, String interval, String temperature_2m, String precipitation, String rain, String showers, String snowfall, String windspeed_10m, String winddirection_10m) {
+    public CurrentUnits(String time, String interval, String temperature_2m, String precipitation, String rain, String showers, String snowfall, String weatherCode, String windspeed_10m, String winddirection_10m, String windgusts10m) {
         this.time = time;
         this.interval = interval;
         this.temperature_2m = temperature_2m;
@@ -19,8 +21,10 @@ public class CurrentUnits {
         this.rain = rain;
         this.showers = showers;
         this.snowfall = snowfall;
+        this.weatherCode = weatherCode;
         this.windspeed_10m = windspeed_10m;
         this.winddirection_10m = winddirection_10m;
+        windgusts_10m = windgusts10m;
     }
 
     public String getTime() {
@@ -50,6 +54,9 @@ public class CurrentUnits {
     public String getSnowfall() {
         return snowfall;
     }
+    public String getWeatherCode() {
+        return weatherCode;
+    }
 
     public String getWindspeed_10m() {
         return windspeed_10m;
@@ -57,6 +64,10 @@ public class CurrentUnits {
 
     public String getWinddirection_10m() {
         return winddirection_10m;
+    }
+
+    public String getWindgusts_10m() {
+        return windgusts_10m;
     }
 
     @Override
@@ -69,8 +80,10 @@ public class CurrentUnits {
                 ", rain='" + rain + '\'' +
                 ", showers='" + showers + '\'' +
                 ", snowfall='" + snowfall + '\'' +
+                ", weatherCode='" + weatherCode + '\'' +
                 ", windspeed_10m='" + windspeed_10m + '\'' +
                 ", winddirection_10m='" + winddirection_10m + '\'' +
+                ", windgusts_10m='" + windgusts_10m + '\'' +
                 '}';
     }
 }

@@ -1,17 +1,20 @@
 package com.gvlocke.weatherapp;
 
 public class Current {
-    private String time;
-    private int interval;
-    private double temperature_2m;
-    private double precipitation;
-    private double rain;
-    private double showers;
-    private double snowfall;
-    private double windspeed_10m;
-    private double winddirection_10m;
+    private final String time;
+    private final int interval;
+    private final double temperature_2m;
+    private final double precipitation;
+    private final double rain;
+    private final double showers;
+    private final double snowfall;
+    private final int weatherCode;
+    private final double wind_speed_10m;
+    private final double wind_direction_10m;
+    private final double wind_gusts_10m;
+    private final WeatherCodeMapper weatherCodeMapper = new WeatherCodeMapper();
 
-    public Current(String time, int interval, double temperature_2m, double precipitation, double rain, double showers, double snowfall, double windspeed_10m, double winddirection_10m) {
+    public Current(String time, int interval, double temperature_2m, double precipitation, double rain, double showers, double snowfall, int weatherCode, double wind_speed_10m, double wind_direction_10m, double wind_gusts_10m) {
         this.time = time;
         this.interval = interval;
         this.temperature_2m = temperature_2m;
@@ -19,8 +22,10 @@ public class Current {
         this.rain = rain;
         this.showers = showers;
         this.snowfall = snowfall;
-        this.windspeed_10m = windspeed_10m;
-        this.winddirection_10m = winddirection_10m;
+        this.weatherCode = weatherCode;
+        this.wind_speed_10m = wind_speed_10m;
+        this.wind_direction_10m = wind_direction_10m;
+        this.wind_gusts_10m = wind_gusts_10m;
     }
 
     public String getTime() {
@@ -51,12 +56,24 @@ public class Current {
         return snowfall;
     }
 
+    public double getWeatherCode() {
+        return weatherCode;
+    }
+
+    public String getWeatherCodeString() {
+        return weatherCodeMapper.getWeatherCode(weatherCode);
+    }
+
     public double getWindspeed_10m() {
-        return windspeed_10m;
+        return wind_speed_10m;
     }
 
     public double getWinddirection_10m() {
-        return winddirection_10m;
+        return wind_direction_10m;
+    }
+
+    public double getWindgusts_10m() {
+        return wind_gusts_10m;
     }
 
     @Override
@@ -69,8 +86,9 @@ public class Current {
                 "Rain: " + rain + " mm\n" +
                 "Showers: " + showers + " mm\n" +
                 "Snowfall: " + snowfall + " cm\n" +
-                "Windspeed (10m): " + windspeed_10m + " m/s\n" +
-                "Winddirection (10m): " + winddirection_10m + "°";
+                "Weather Code:" + weatherCodeMapper.getWeatherCode(weatherCode) +
+                "Windspeed (10m): " + wind_speed_10m + " m/s\n" +
+                "Winddirection (10m): " + wind_direction_10m + "°";
     }
 }
 

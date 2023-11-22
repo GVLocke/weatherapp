@@ -25,7 +25,7 @@ public class MainSceneController {
 
     public void setLocation(Geolocation location) {
         this.location = location;
-        this.locationstring = location.getCity() + ", " + location.getRegionName() + ", " + location.getCountryCode();
+        this.locationstring = location.city() + ", " + location.regionName() + ", " + location.countryCode();
     }
 
     public void displayTime() {

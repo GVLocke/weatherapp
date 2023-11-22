@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Locator {
-    public Geolocation getLocation() {
+    public Geolocation getGeolocation() {
         try {
             URL url = new URL("http://ip-api.com/json/?fields=status,message,countryCode,regionName,city,lat,lon,timezone");
 
@@ -29,13 +29,11 @@ public class Locator {
                 JSONObject jsonResponse = new JSONObject(response.toString());
 
                 return new Geolocation(
-                        jsonResponse.getString("status"),
                         jsonResponse.getString("countryCode"),
                         jsonResponse.getString("regionName"),
                         jsonResponse.getString("city"),
                         jsonResponse.getDouble("lat"),
-                        jsonResponse.getDouble("lon"),
-                        jsonResponse.getString("timezone")
+                        jsonResponse.getDouble("lon")
                 );
             }
             else {
