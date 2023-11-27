@@ -20,10 +20,12 @@ public class WeatherApp extends Application {
         if (geolocation != null) {
             controller.setWeather(new Forecaster().getWeather(geolocation));
             controller.setLocation(geolocation);
+            controller.displayCurrentTemperature();
             controller.displayTime();
             controller.displayLocation();
             controller.displayCurrentWeather();
-            stage.setTitle("Weather for " + controller.getLocationstring());
+            controller.displayWeatherCode();
+//            stage.setTitle("Weather for " + controller.getLocationstring());
             stage.setScene(scene);
             stage.show();
         }
@@ -52,17 +54,22 @@ public class WeatherApp extends Application {
             System.out.print("Enter the name of a place (or an address): ");
             String placeName = input.nextLine();
             input.close();
-            File apiFile = new File("apikey.txt");
-            String apiKey = "";
-            try {
-                Scanner fileReader = new Scanner(apiFile);
-                apiKey = fileReader.nextLine();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+            String apiKey = getApiKey();
             Geocoder geocoder = new Geocoder(apiKey);
             return geocoder.getGeolocation(placeName);
         }
         return null;
+    }
+
+    public static String getApiKey() {
+        File apiFile = new File("apikey.txt");
+        String apiKey = "";
+        try {
+            Scanner fileReader = new Scanner(apiFile);
+            apiKey = fileReader.nextLine();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return apiKey;
     }
 }

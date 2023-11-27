@@ -56,7 +56,7 @@ public class Current {
         return snowfall;
     }
 
-    public double getWeatherCode() {
+    public int getWeatherCode() {
         return weatherCode;
     }
 
