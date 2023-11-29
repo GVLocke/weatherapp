@@ -11,8 +11,10 @@ public class Weather {
     private final Current current;
     private final HourlyUnits hourly_units;
     private final Hourly hourly;
+    private final DailyUnits daily_units;
+    private final Daily daily;
 
-    public Weather(double latitude, double longitude, double generationtime_ms, int utc_offset_seconds, String timezone, String timezone_abbreviation, double elevation, CurrentUnits current_units, Current current, HourlyUnits hourly_units, Hourly hourly) {
+    public Weather(double latitude, double longitude, double generationtime_ms, int utc_offset_seconds, String timezone, String timezone_abbreviation, double elevation, CurrentUnits current_units, Current current, HourlyUnits hourly_units, Hourly hourly, DailyUnits dailyUnits, Daily daily) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.generationtime_ms = generationtime_ms;
@@ -24,6 +26,8 @@ public class Weather {
         this.current = current;
         this.hourly_units = hourly_units;
         this.hourly = hourly;
+        daily_units = dailyUnits;
+        this.daily = daily;
     }
 
     public double getLatitude() {
@@ -107,5 +111,13 @@ public class Weather {
                 ", hourly_units=" + hourly_units +
                 ", hourly=" + hourly +
                 '}';
+    }
+
+    public DailyUnits getDaily_units() {
+        return daily_units;
+    }
+
+    public Daily getDaily() {
+        return daily;
     }
 }
