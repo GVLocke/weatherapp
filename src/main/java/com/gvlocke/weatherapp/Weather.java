@@ -72,8 +72,16 @@ public class Weather {
 
     public String getCurrentWeather() {
         // TODO: Turn Wind Direction Units to Cardinal Directions. The API can only return degrees.
+        String day;
+        if (this.current.getIs_day() == 1) {
+            day = "Day";
+        }
+        else {
+            day = "Night";
+        }
         return "Current Weather:\n" +
                 "Temperature (2m): " + this.current.getTemperature_2m() + " " + this.current_units.getTemperature_2m() + "\n" +
+                "Is Day: " + day + "\n" +
                 "Precipitation: " + this.current.getPrecipitation() + " " + this.current_units.getPrecipitation() + "\n" +
                 "Rain: " + this.current.getRain() + " " + this.current_units.getRain() + "\n" +
                 "Showers: " + this.current.getShowers() + " " + this.current_units.getShowers() + "\n" +

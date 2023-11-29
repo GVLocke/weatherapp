@@ -9,45 +9,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="429.0" prefWidth="639.0"
-            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.gvlocke.weatherapp.MainSceneController">
-   <VBox layoutX="17.0" layoutY="14.0" prefHeight="374.0" prefWidth="571.0" AnchorPane.bottomAnchor="14.0"
-         AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="429.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gvlocke.weatherapp.MainSceneController">
+   <VBox layoutX="17.0" layoutY="14.0" prefHeight="374.0" prefWidth="571.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0">
       <HBox prefHeight="28.0" prefWidth="570.0">
-         <Label fx:id="timeLabel" prefHeight="18.0" prefWidth="183.0" text="Current Time" HBox.hgrow="ALWAYS"/>
-         <Region prefHeight="28.0" prefWidth="0.0" HBox.hgrow="ALWAYS"/>
-         <Label fx:id="locationLabel" alignment="CENTER" prefHeight="18.0" prefWidth="189.0" text="Label"
-                HBox.hgrow="ALWAYS"/>
+         <Label fx:id="timeLabel" prefHeight="18.0" prefWidth="183.0" text="Current Time" HBox.hgrow="ALWAYS" />
+         <Region prefHeight="28.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+         <Label fx:id="locationLabel" alignment="CENTER" prefHeight="18.0" prefWidth="189.0" text="Label" HBox.hgrow="ALWAYS" />
          <HBox prefHeight="28.0" prefWidth="235.0" HBox.hgrow="ALWAYS">
-            <Region prefHeight="28.0" prefWidth="0.0" HBox.hgrow="ALWAYS"/>
-            <TextField fx:id="locationTextField" prefHeight="26.0" prefWidth="165.0"
-                       promptText="Enter a Location..." HBox.hgrow="NEVER"/>
-            <Button mnemonicParsing="false" onAction="#searchLocation" prefHeight="28.0" prefWidth="77.0"
-                    text="Search" HBox.hgrow="ALWAYS"/>
+            <Region prefHeight="28.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="locationTextField" prefHeight="26.0" prefWidth="165.0" promptText="Enter a Location..." HBox.hgrow="NEVER" />
+            <Button mnemonicParsing="false" onAction="#searchLocation" prefHeight="28.0" prefWidth="77.0" text="Search" HBox.hgrow="ALWAYS" />
          </HBox>
       </HBox>
       <VBox prefHeight="86.0" prefWidth="570.0">
          <HBox prefHeight="54.0" prefWidth="600.0">
-            <Region prefHeight="54.0" prefWidth="0.0" HBox.hgrow="ALWAYS"/>
-            <Label alignment="CENTER_RIGHT" prefHeight="112.0" prefWidth="310.0" text="bla bla bla bla bla bla"
-                   textAlignment="RIGHT" HBox.hgrow="ALWAYS"/>
-            <Label fx:id="currentTemperatureLabel" prefHeight="127.0" prefWidth="314.0" text="Temperature"
-                   HBox.hgrow="ALWAYS">
+            <Region prefHeight="54.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+            <Label alignment="CENTER_RIGHT" prefHeight="112.0" prefWidth="310.0" text="bla bla bla bla bla bla" textAlignment="RIGHT" HBox.hgrow="ALWAYS" />
+            <Label fx:id="currentTemperatureLabel" prefHeight="127.0" prefWidth="314.0" text="Temperature" HBox.hgrow="ALWAYS">
                <font>
-                  <Font size="43.0"/>
+                  <Font size="43.0" />
                </font>
             </Label>
-            <Region prefHeight="54.0" prefWidth="0.0" HBox.hgrow="ALWAYS"/>
+            <Region prefHeight="54.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
          </HBox>
          <HBox prefHeight="17.0" prefWidth="605.0">
-            <Region prefHeight="18.0" prefWidth="0.0" HBox.hgrow="ALWAYS"/>
-            <Label fx:id="weatherCodeLabel" alignment="CENTER" prefHeight="38.0" prefWidth="605.0"
-                   text="Condition"/>
-            <Region prefHeight="18.0" prefWidth="0.0" HBox.hgrow="ALWAYS"/>
+            <Region prefHeight="18.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+            <Label fx:id="weatherCodeLabel" alignment="CENTER" prefHeight="38.0" prefWidth="605.0" text="Condition" />
+            <Region prefHeight="18.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
          </HBox>
       </VBox>
-      <Label fx:id="currentWeatherLabel" prefHeight="249.0" prefWidth="600.0" text="Current Weather"
-             VBox.vgrow="NEVER"/>
+      <Label fx:id="currentWeatherLabel" prefHeight="249.0" prefWidth="600.0" text="Current Weather" VBox.vgrow="NEVER" />
    </VBox>
 </AnchorPane>

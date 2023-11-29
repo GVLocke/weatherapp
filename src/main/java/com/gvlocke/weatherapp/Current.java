@@ -4,6 +4,7 @@ public class Current {
     private final String time;
     private final int interval;
     private final double temperature_2m;
+    private final int is_day;
     private final double precipitation;
     private final double rain;
     private final double showers;
@@ -14,10 +15,11 @@ public class Current {
     private final double wind_gusts_10m;
     private final WeatherCodeMapper weatherCodeMapper = new WeatherCodeMapper();
 
-    public Current(String time, int interval, double temperature_2m, double precipitation, double rain, double showers, double snowfall, int weatherCode, double wind_speed_10m, double wind_direction_10m, double wind_gusts_10m) {
+    public Current(String time, int interval, double temperature_2m, int isDay, double precipitation, double rain, double showers, double snowfall, int weatherCode, double wind_speed_10m, double wind_direction_10m, double wind_gusts_10m) {
         this.time = time;
         this.interval = interval;
         this.temperature_2m = temperature_2m;
+        this.is_day = isDay;
         this.precipitation = precipitation;
         this.rain = rain;
         this.showers = showers;
@@ -38,6 +40,10 @@ public class Current {
 
     public double getTemperature_2m() {
         return temperature_2m;
+    }
+
+    public int getIs_day() {
+        return is_day;
     }
 
     public double getPrecipitation() {
@@ -81,6 +87,7 @@ public class Current {
         return "Current Weather:\n" +
                 "Time: " + time + "\n" +
                 "Interval: " + interval + "\n" +
+                "Is Day: " + is_day + "\n" +
                 "Temperature (2m): " + temperature_2m + "°C\n" +
                 "Precipitation: " + precipitation + " mm\n" +
                 "Rain: " + rain + " mm\n" +

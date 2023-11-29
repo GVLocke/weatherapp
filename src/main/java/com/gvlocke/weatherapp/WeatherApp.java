@@ -16,7 +16,8 @@ public class WeatherApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(WeatherApp.class.getResource("MainScene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         MainSceneController controller = fxmlLoader.getController();
-        Geolocation geolocation = getLocation();
+        Locator locator = new Locator();
+        Geolocation geolocation = locator.getGeolocation();
         if (geolocation != null) {
             controller.setWeather(new Forecaster().getWeather(geolocation));
             controller.setLocation(geolocation);
@@ -36,29 +37,6 @@ public class WeatherApp extends Application {
 
     public static void main(String[] args) {
         launch();
-    }
-
-    public static Geolocation getLocation() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("1. Use current location");
-        System.out.println("2. Search for a location");
-        System.out.print("Choose an option: ");
-        int selection = input.nextInt();
-        // consume the newline character
-        input.nextLine();
-        if (selection == 1) {
-            Locator locator = new Locator();
-            return locator.getGeolocation();
-        }
-        if (selection == 2) {
-            System.out.print("Enter the name of a place (or an address): ");
-            String placeName = input.nextLine();
-            input.close();
-            String apiKey = getApiKey();
-            Geocoder geocoder = new Geocoder(apiKey);
-            return geocoder.getGeolocation(placeName);
-        }
-        return null;
     }
 
     public static String getApiKey() {
