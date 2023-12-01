@@ -90,7 +90,7 @@ public class Weather {
                 "Rain: " + this.current.getRain() + " " + this.current_units.getRain() + "\n" +
                 "Showers: " + this.current.getShowers() + " " + this.current_units.getShowers() + "\n" +
                 "Snowfall: " + this.current.getSnowfall() + " " + this.current_units.getSnowfall() + "\n" +
-                "Weather Code: " + this.current.getWeatherCodeString() + "\n" +
+                "Weather Code: " + this.current.getWeatherCode() + "\n" +
                 "Wind Speed (10m): " + this.current.getWindspeed_10m() + " " + this.current_units.getWindspeed_10m() + "\n" +
                 "Wind Direction (10m): " + this.current.getWinddirection_10m() + " " + this.current_units.getWinddirection_10m() + "\n" +
                 "Wind Gusts (10m): " + this.current.getWindgusts_10m() + " " + this.current_units.getWindgusts_10m();

@@ -26,7 +26,8 @@ public class WeatherApp extends Application {
             controller.displayLocation();
             controller.displayCurrentWeather();
             controller.displayWeatherCode();
-//            stage.setTitle("Weather for " + controller.getLocationstring());
+            controller.displayWeatherIcon(controller.getIconPath());
+            controller.displayHiLowTemperature();
             stage.setScene(scene);
             stage.show();
         }
