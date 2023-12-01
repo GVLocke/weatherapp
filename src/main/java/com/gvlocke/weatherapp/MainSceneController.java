@@ -56,7 +56,7 @@ public class MainSceneController {
     }
 
     public void displayHiLowTemperature() {
-        hiLowLabel.setText("L: " + weather.getDaily().getTemperature_2m_min().get(0)+ "°/H: " + weather.getDaily().getTemperature_2m_max().get(0) + "°");
+        hiLowLabel.setText("L: " + weather.getDaily().temperature_2m_min().get(0)+ "°/H: " + weather.getDaily().temperature_2m_max().get(0) + "°");
     }
 
     public void displayWeatherCode() {

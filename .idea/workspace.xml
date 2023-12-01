@@ -4,29 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4f963dd-b2a2-4c8d-bddc-81463b637afe" name="Changes" comment="Added Daily class">
+    <list default="true" id="f4f963dd-b2a2-4c8d-bddc-81463b637afe" name="Changes" comment="Added weather icons">
       <change afterPath="$PROJECT_DIR$/apikey.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cloudy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/night.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/partly-cloudy-night.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/partly-cloudy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/rain-night.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/rain-with-sun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/rain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sleet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/snow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sunny.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/thunderstorms.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/unknown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/windy-rain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/windy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wintry-mix.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/CurrentUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/CurrentUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Daily.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Daily.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/DailyUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/DailyUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Geocoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Geocoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Hourly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Hourly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/HourlyUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/HourlyUnits.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/MainSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/MainSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/WeatherApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/WeatherApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/WeatherCodeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/WeatherCodeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gvlocke/weatherapp/MainScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gvlocke/weatherapp/MainScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +30,7 @@
         <option value="FxmlFile" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -192,6 +181,7 @@
       <workItem from="1701231797455" duration="33000" />
       <workItem from="1701270022296" duration="14854000" />
       <workItem from="1701374519582" duration="110000" />
+      <workItem from="1701448969766" duration="913000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -313,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701272130143</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added weather icons">
+      <option name="closed" value="true" />
+      <created>1701449122298</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701449122298</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +331,8 @@
     <MESSAGE value="Updated gui to resize properly&#10;added search field" />
     <MESSAGE value="Added IsDay/Night field" />
     <MESSAGE value="Added Daily class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Daily class" />
+    <MESSAGE value="Added weather icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added weather icons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

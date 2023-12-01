@@ -84,16 +84,16 @@ public class Weather {
             day = "Night";
         }
         return "Current Weather:\n" +
-                "Temperature (2m): " + this.current.getTemperature_2m() + " " + this.current_units.getTemperature_2m() + "\n" +
+                "Temperature (2m): " + this.current.getTemperature_2m() + " " + this.current_units.temperature_2m() + "\n" +
                 "Is Day: " + day + "\n" +
-                "Precipitation: " + this.current.getPrecipitation() + " " + this.current_units.getPrecipitation() + "\n" +
-                "Rain: " + this.current.getRain() + " " + this.current_units.getRain() + "\n" +
-                "Showers: " + this.current.getShowers() + " " + this.current_units.getShowers() + "\n" +
-                "Snowfall: " + this.current.getSnowfall() + " " + this.current_units.getSnowfall() + "\n" +
+                "Precipitation: " + this.current.getPrecipitation() + " " + this.current_units.precipitation() + "\n" +
+                "Rain: " + this.current.getRain() + " " + this.current_units.rain() + "\n" +
+                "Showers: " + this.current.getShowers() + " " + this.current_units.showers() + "\n" +
+                "Snowfall: " + this.current.getSnowfall() + " " + this.current_units.snowfall() + "\n" +
                 "Weather Code: " + this.current.getWeatherCode() + "\n" +
-                "Wind Speed (10m): " + this.current.getWindspeed_10m() + " " + this.current_units.getWindspeed_10m() + "\n" +
-                "Wind Direction (10m): " + this.current.getWinddirection_10m() + " " + this.current_units.getWinddirection_10m() + "\n" +
-                "Wind Gusts (10m): " + this.current.getWindgusts_10m() + " " + this.current_units.getWindgusts_10m();
+                "Wind Speed (10m): " + this.current.getWindspeed_10m() + " " + this.current_units.windspeed_10m() + "\n" +
+                "Wind Direction (10m): " + this.current.getWinddirection_10m() + " " + this.current_units.winddirection_10m() + "\n" +
+                "Wind Gusts (10m): " + this.current.getWindgusts_10m() + " " + this.current_units.windgusts_10m();
     }
 
     @Override

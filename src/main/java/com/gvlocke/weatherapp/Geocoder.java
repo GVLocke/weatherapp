@@ -4,11 +4,11 @@ import org.apache.http.HttpEntity;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.IOException;
+import static org.apache.http.impl.client.HttpClients.createDefault;
 
 public class Geocoder {
 
@@ -19,7 +19,7 @@ public class Geocoder {
     }
 
     public Geolocation getGeolocation(String placeName) {
-        HttpClient client = HttpClients.createDefault();
+        HttpClient client = createDefault();
         placeName = placeName.replace(' ', '+');
         String apiURL = buildGeocodingURL(placeName);
         try {
