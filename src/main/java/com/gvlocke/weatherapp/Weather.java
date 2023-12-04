@@ -1,4 +1,7 @@
 package com.gvlocke.weatherapp;
+
+import java.time.LocalDateTime;
+
 public class Weather {
     private final double latitude;
     private final double longitude;
@@ -13,6 +16,10 @@ public class Weather {
     private final Hourly hourly;
     private final DailyUnits daily_units;
     private final Daily daily;
+    public final LocalDateTime TODAY_SUNRISE;
+    public final LocalDateTime TODAY_SUNSET;
+    public final LocalDateTime TOMORROW_SUNRISE;
+    public final LocalDateTime TOMORROW_SUNSET;
 
     public Weather(double latitude, double longitude, double generationtime_ms, int utc_offset_seconds, String timezone, String timezone_abbreviation, double elevation, CurrentUnits current_units, Current current, HourlyUnits hourly_units, Hourly hourly, DailyUnits dailyUnits, Daily daily) {
         this.latitude = latitude;
@@ -28,6 +35,10 @@ public class Weather {
         this.hourly = hourly;
         daily_units = dailyUnits;
         this.daily = daily;
+        this.TODAY_SUNRISE = LocalDateTime.parse(this.daily.sunrise().get(0));
+        this.TODAY_SUNSET = LocalDateTime.parse(this.daily.sunset().get(0));
+        this.TOMORROW_SUNRISE = LocalDateTime.parse(this.daily.sunrise().get(1));
+        this.TOMORROW_SUNSET = LocalDateTime.parse(this.daily.sunset().get(1));
     }
 
     public double getLatitude() {

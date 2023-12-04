@@ -19,16 +19,24 @@ public class WeatherApp extends Application {
         Locator locator = new Locator();
         Geolocation geolocation = locator.getGeolocation();
         if (geolocation != null) {
-            controller.setWeather(new Forecaster().getWeather(geolocation));
+            Weather weather = new Forecaster().getWeather(geolocation);
+            controller.setWeather(weather);
             controller.setLocation(geolocation);
             controller.displayCurrentTemperature();
             controller.displayTime();
             controller.displayLocation();
-            controller.displayCurrentWeather();
             controller.displayWeatherCode();
-            controller.displayWeatherIcon(controller.getIconPath());
+            controller.displayWeatherIcon(controller.getIconPath(weather.getCurrent().getWeatherCode(), weather.getCurrent().getWindspeed_10m(), weather.getCurrent().getIs_day()));
             controller.displayHiLowTemperature();
+            controller.initializeScrollbar();
+            controller.initializeSevenDayForecast();
+            controller.initializeWindModule();
+            controller.initializePrecipitationModule();
             stage.setScene(scene);
+            stage.setResizable(true);
+            stage.setMinHeight(545);
+            stage.setMinWidth(692);
+            stage.setMaxWidth(1326);
             stage.show();
         }
         else {

@@ -41,6 +41,10 @@ public class WeatherCodeMapper {
         weatherCodeMap.put(71, "Light Snow");                       // snow
         weatherCodeMap.put(73, "Moderate Snow");                    // ..
         weatherCodeMap.put(75, "Heavy Snow");                       // ..
+        weatherCodeMap.put(76, "Light Snow Grains");                // ..
+        weatherCodeMap.put(77, "Moderate Snow Grains");             // ..
+        weatherCodeMap.put(78, "Heavy Snow Grains");                // ..
+        weatherCodeMap.put(79, "Light Ice Crystals");               // ..
         weatherCodeMap.put(80, "Light Showers");                    // rain
         weatherCodeMap.put(81, "Moderate Showers");                 // ..
         weatherCodeMap.put(82, "Violent Showers");                  // ..
@@ -62,6 +66,6 @@ public class WeatherCodeMapper {
     }
 
     public String getWeatherCode(int weatherCode) {
-        return weatherCodeMap.get(weatherCode);
+        return weatherCodeMap.getOrDefault(weatherCode, "Unknown");
     }
 }
