@@ -4,16 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4f963dd-b2a2-4c8d-bddc-81463b637afe" name="Changes" comment="Deleted unused `App.java`">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="f4f963dd-b2a2-4c8d-bddc-81463b637afe" name="Changes" comment="converted some classes to records">
       <change afterPath="$PROJECT_DIR$/apikey.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/DriverClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Geocoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/cloudy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/night_large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/partly-cloudy-night.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/partly-cloudy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/rain-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/rain-night-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/rain-with-sun-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/sleet-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/snow-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/sunny-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/thunderstorms-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/unknown-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/windy-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/windy-rain-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/large_icons/wintry-mix-large.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Daily.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Daily.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/DailyUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/DailyUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Forecaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Forecaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Hourly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Hourly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/HourlyUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/HourlyUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/MainSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/MainSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/WeatherApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/WeatherApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/WeatherCodeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gvlocke/weatherapp/WeatherCodeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cloudy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cloudy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gvlocke/weatherapp/MainScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gvlocke/weatherapp/MainScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/night.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/night.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/partly-cloudy-night.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/partly-cloudy-night.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/partly-cloudy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/partly-cloudy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/rain-night.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/rain-night.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/rain-with-sun.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/rain-with-sun.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/rain.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/rain.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sleet.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sleet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/snow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/snow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sunny.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sunny.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/thunderstorms.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/thunderstorms.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/unknown.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/unknown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/windy-rain.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windy-rain.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/windy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/windy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/wintry-mix.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wintry-mix.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +60,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
+        <option value="Enum" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -33,7 +70,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="split-up-weather-class" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -86,11 +123,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "New-GUI",
+    "last_opened_file_path": "/Users/Keys/Projects/IdeaProjects/weatherapp/src/main/resources/com/gvlocke/weatherapp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
@@ -99,7 +139,13 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.gvlocke.weatherapp" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/gvlocke/weatherapp" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/gvlocke/weatherapp/icons" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/icons" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -120,6 +166,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.WeatherApp" />
+        <item itemvalue="Application.WeatherApp" />
+        <item itemvalue="Application.WeatherApp" />
       </list>
     </recent_temporary>
   </component>
@@ -137,7 +185,25 @@
       <workItem from="1699060231632" duration="1216000" />
       <workItem from="1699282807444" duration="22000" />
       <workItem from="1699283151594" duration="28000" />
-      <workItem from="1699470804320" duration="5572000" />
+      <workItem from="1699470804320" duration="9135000" />
+      <workItem from="1699564462914" duration="288000" />
+      <workItem from="1699564773663" duration="5647000" />
+      <workItem from="1699887914681" duration="4000" />
+      <workItem from="1699887999177" duration="3794000" />
+      <workItem from="1700061809959" duration="5286000" />
+      <workItem from="1700229542140" duration="1970000" />
+      <workItem from="1700234813481" duration="1635000" />
+      <workItem from="1700594340135" duration="35000" />
+      <workItem from="1700594383489" duration="1377000" />
+      <workItem from="1700595985193" duration="6493000" />
+      <workItem from="1701097818301" duration="7255000" />
+      <workItem from="1701231797455" duration="33000" />
+      <workItem from="1701270022296" duration="14854000" />
+      <workItem from="1701374519582" duration="110000" />
+      <workItem from="1701448969766" duration="2445000" />
+      <workItem from="1701563965970" duration="24000" />
+      <workItem from="1701564019314" duration="19126000" />
+      <workItem from="1701646525709" duration="3058000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -211,7 +277,71 @@
       <option name="project" value="LOCAL" />
       <updated>1699058849003</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Worked on Geocoding">
+      <option name="closed" value="true" />
+      <created>1699489319045</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699489319045</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added Wind Gusts, and a basic WeatherCode implementation">
+      <option name="closed" value="true" />
+      <created>1700668620711</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700668620711</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added Wind Gusts, and a basic WeatherCode implementation">
+      <option name="closed" value="true" />
+      <created>1700668650039</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700668650039</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Updated gui to resize properly&#10;added search field">
+      <option name="closed" value="true" />
+      <created>1701100166432</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701100166432</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added IsDay/Night field">
+      <option name="closed" value="true" />
+      <created>1701271159090</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701271159090</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added Daily class">
+      <option name="closed" value="true" />
+      <created>1701272130143</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701272130143</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added weather icons">
+      <option name="closed" value="true" />
+      <created>1701449122298</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701449122298</updated>
+    </task>
+    <task id="LOCAL-00017" summary="converted some classes to records">
+      <option name="closed" value="true" />
+      <created>1701450032214</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701450032214</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +356,27 @@
     <MESSAGE value="intial gui work" />
     <MESSAGE value="Renamed Forcastor.java to Forecaster.java." />
     <MESSAGE value="Deleted unused `App.java`" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted unused `App.java`" />
+    <MESSAGE value="Worked on Geocoding" />
+    <MESSAGE value="Added Wind Gusts, and a basic WeatherCode implementation" />
+    <MESSAGE value="Updated gui to resize properly&#10;added search field" />
+    <MESSAGE value="Added IsDay/Night field" />
+    <MESSAGE value="Added Daily class" />
+    <MESSAGE value="Added weather icons" />
+    <MESSAGE value="converted some classes to records" />
+    <option name="LAST_COMMIT_MESSAGE" value="converted some classes to records" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassCastException" package="java.lang" />
+          <option name="timeStamp" value="10" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

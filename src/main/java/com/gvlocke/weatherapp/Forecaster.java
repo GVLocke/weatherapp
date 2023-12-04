@@ -1,10 +1,12 @@
 package com.gvlocke.weatherapp;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -12,21 +14,41 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.HttpEntity;
-
 public class Forecaster {
-    public Weather getWeather() {
+    public Weather getWeather(Geolocation geolocation) {
         // create a client object to send HTTP requests
         HttpClient httpClient = HttpClients.createDefault();
-
-        // get the geolocation of the user by making a request to ip-api.com
-        Geolocation geolocation = new Locator().getLocation();
 
         // print the geolocation to the console
         System.out.println(geolocation);
 
         // create a string containing the URL of the API endpoint including the geolocation data
-        String apiURL = "https://api.open-meteo.com/v1/forecast?latitude=" + geolocation.getLat() + "&longitude=" + geolocation.getLon() + "&current=temperature_2m,precipitation,rain,showers,snowfall,windspeed_10m,winddirection_10m&hourly=temperature_2m,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,windspeed_10m,winddirection_10m&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=auto";
+        String apiURL = "https://api.open-meteo.com/v1/forecast?latitude=" + geolocation.lat() + "&longitude=" + geolocation.lon() + "&current=temperature_2m,is_day,precipitation,rain,showers,snowfall,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=temperature_2m,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=auto&past_hours=1&forecast_hours=24";
+        return apiRequest(httpClient, apiURL);
+    }
+
+    public Weather getWeather(Geolocation geolocation, String windSpeedUnit, String temperatureUnit, String precipitationUnit) {
+        // create a client object to send HTTP requests
+        HttpClient httpClient = HttpClients.createDefault();
+
+        // print the geolocation to the console
+        System.out.println(geolocation);
+
+        // create a string containing the URL of the API endpoint including the geolocation data
+        String apiURL = "https://api.open-meteo.com/v1/forecast?latitude=" + geolocation.lat() + "&longitude=" + geolocation.lon() + "&current=temperature_2m,is_day,precipitation,rain,showers,snowfall,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=temperature_2m,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours&temperature_unit=" + temperatureUnit + "&windspeed_unit=" + windSpeedUnit + "&precipitation_unit=" + precipitationUnit + "&timezone=auto&past_hours=1&forecast_hours=24";
+        return apiRequest(httpClient, apiURL);
+    }
+
+    private <T> List<T> jsonArrayToList(JSONArray jsonArray) {
+        List<T> list = new ArrayList<>();
+        for (int i = 0; i < jsonArray.length(); i++) {
+            list.add((T) jsonArray.get(i));
+        }
+        return list;
+    }
+
+    @Nullable
+    private Weather apiRequest(HttpClient httpClient, String apiURL) {
         try {
             HttpGet request = new HttpGet(apiURL);
 
@@ -38,16 +60,31 @@ public class Forecaster {
                 JSONObject jsonResponse = new JSONObject(responseBody);
 
                 JSONObject hourlyData = jsonResponse.getJSONObject("hourly");
-                List<String> timeList = jsonArrayToList(hourlyData.getJSONArray("time"));
-                List<Double> temperature_2mList = jsonArrayToList(hourlyData.getJSONArray("temperature_2m"));
+                List<String> hourlyTimeList = jsonArrayToList(hourlyData.getJSONArray("time"));
+                List<Number> temperature_2mList = jsonArrayToList(hourlyData.getJSONArray("temperature_2m"));
                 List<Double> precipitation_probabilityList = jsonArrayToList(hourlyData.getJSONArray("precipitation_probability"));
                 List<Double> precipitationList = jsonArrayToList(hourlyData.getJSONArray("precipitation"));
                 List<Double> rainList = jsonArrayToList(hourlyData.getJSONArray("rain"));
                 List<Double> showersList = jsonArrayToList(hourlyData.getJSONArray("showers"));
                 List<Double> snowfallList = jsonArrayToList(hourlyData.getJSONArray("snowfall"));
                 List<Double> snow_depthList = jsonArrayToList(hourlyData.getJSONArray("snow_depth"));
-                List<Double> windspeed_10mList = jsonArrayToList(hourlyData.getJSONArray("windspeed_10m"));
-                List<Integer> winddirection_10mList = jsonArrayToList(hourlyData.getJSONArray("winddirection_10m"));
+                List<Integer> weather_codeList = jsonArrayToList(hourlyData.getJSONArray("weather_code"));
+                List<Number> windspeed_10mList = jsonArrayToList(hourlyData.getJSONArray("wind_speed_10m"));
+                List<Integer> winddirection_10mList = jsonArrayToList(hourlyData.getJSONArray("wind_direction_10m"));
+                List<Double> windgusts_10mList = jsonArrayToList(hourlyData.getJSONArray("wind_gusts_10m"));
+
+                JSONObject dailyData = jsonResponse.getJSONObject("daily");
+                List<String> dailyTimeList = jsonArrayToList(dailyData.getJSONArray("time"));
+                List<Integer> dailyWeather_codeList = jsonArrayToList(dailyData.getJSONArray("weather_code"));
+                List<Number> temperature_2m_maxList = jsonArrayToList(dailyData.getJSONArray("temperature_2m_max"));
+                List<Number> temperature_2m_minList = jsonArrayToList(dailyData.getJSONArray("temperature_2m_min"));
+                List<String> sunriseList = jsonArrayToList(dailyData.getJSONArray("sunrise"));
+                List<String> sunsetList = jsonArrayToList(dailyData.getJSONArray("sunset"));
+                List<Number> precipitation_sumList = jsonArrayToList(dailyData.getJSONArray("precipitation_sum"));
+                List<Double> rain_sumList = jsonArrayToList(dailyData.getJSONArray("rain_sum"));
+                List<Double> showers_sumList = jsonArrayToList(dailyData.getJSONArray("showers_sum"));
+                List<Double> snowfall_sumList = jsonArrayToList(dailyData.getJSONArray("snowfall_sum"));
+                List<Double> precipitation_hoursList = jsonArrayToList(dailyData.getJSONArray("precipitation_hours"));
 
                 return new Weather(
                         jsonResponse.getDouble("latitude"),
@@ -65,19 +102,24 @@ public class Forecaster {
                                 jsonResponse.getJSONObject("current_units").getString("rain"),
                                 jsonResponse.getJSONObject("current_units").getString("showers"),
                                 jsonResponse.getJSONObject("current_units").getString("snowfall"),
-                                jsonResponse.getJSONObject("current_units").getString("windspeed_10m"),
-                                jsonResponse.getJSONObject("current_units").getString("winddirection_10m")
+                                jsonResponse.getJSONObject("current_units").getString("weather_code"),
+                                jsonResponse.getJSONObject("current_units").getString("wind_speed_10m"),
+                                jsonResponse.getJSONObject("current_units").getString("wind_direction_10m"),
+                                jsonResponse.getJSONObject("current_units").getString("wind_gusts_10m")
                         ),
                         new Current(
                                 jsonResponse.getJSONObject("current").getString("time"),
                                 jsonResponse.getJSONObject("current").getInt("interval"),
                                 jsonResponse.getJSONObject("current").getDouble("temperature_2m"),
+                                jsonResponse.getJSONObject("current").getInt("is_day"),
                                 jsonResponse.getJSONObject("current").getDouble("precipitation"),
                                 jsonResponse.getJSONObject("current").getDouble("rain"),
                                 jsonResponse.getJSONObject("current").getDouble("showers"),
                                 jsonResponse.getJSONObject("current").getDouble("snowfall"),
-                                jsonResponse.getJSONObject("current").getDouble("windspeed_10m"),
-                                jsonResponse.getJSONObject("current").getDouble("winddirection_10m")
+                                jsonResponse.getJSONObject("current").getInt("weather_code"),
+                                jsonResponse.getJSONObject("current").getDouble("wind_speed_10m"),
+                                jsonResponse.getJSONObject("current").getDouble("wind_direction_10m"),
+                                jsonResponse.getJSONObject("current").getDouble("wind_gusts_10m")
                         ),
                         new HourlyUnits(
                                 jsonResponse.getJSONObject("hourly_units").getString("time"),
@@ -88,11 +130,13 @@ public class Forecaster {
                                 jsonResponse.getJSONObject("hourly_units").getString("showers"),
                                 jsonResponse.getJSONObject("hourly_units").getString("snowfall"),
                                 jsonResponse.getJSONObject("hourly_units").getString("snow_depth"),
-                                jsonResponse.getJSONObject("hourly_units").getString("windspeed_10m"),
-                                jsonResponse.getJSONObject("hourly_units").getString("winddirection_10m")
+                                jsonResponse.getJSONObject("hourly_units").getString("weather_code"),
+                                jsonResponse.getJSONObject("hourly_units").getString("wind_speed_10m"),
+                                jsonResponse.getJSONObject("hourly_units").getString("wind_direction_10m"),
+                                jsonResponse.getJSONObject("hourly_units").getString("wind_gusts_10m")
                         ),
                         new Hourly(
-                                timeList,
+                                hourlyTimeList,
                                 temperature_2mList,
                                 precipitation_probabilityList,
                                 precipitationList,
@@ -100,9 +144,38 @@ public class Forecaster {
                                 showersList,
                                 snowfallList,
                                 snow_depthList,
+                                weather_codeList,
                                 windspeed_10mList,
-                                winddirection_10mList
-                        ));
+                                winddirection_10mList,
+                                windgusts_10mList
+                        ),
+                        new DailyUnits(
+                                jsonResponse.getJSONObject("daily_units").getString("time"),
+                                jsonResponse.getJSONObject("daily_units").getString("weather_code"),
+                                jsonResponse.getJSONObject("daily_units").getString("temperature_2m_max"),
+                                jsonResponse.getJSONObject("daily_units").getString("temperature_2m_min"),
+                                jsonResponse.getJSONObject("daily_units").getString("sunrise"),
+                                jsonResponse.getJSONObject("daily_units").getString("sunset"),
+                                jsonResponse.getJSONObject("daily_units").getString("precipitation_sum"),
+                                jsonResponse.getJSONObject("daily_units").getString("rain_sum"),
+                                jsonResponse.getJSONObject("daily_units").getString("showers_sum"),
+                                jsonResponse.getJSONObject("daily_units").getString("snowfall_sum"),
+                                jsonResponse.getJSONObject("daily_units").getString("precipitation_hours")
+                        ),
+                        new Daily(
+                                dailyTimeList,
+                                dailyWeather_codeList,
+                                temperature_2m_maxList,
+                                temperature_2m_minList,
+                                sunriseList,
+                                sunsetList,
+                                precipitation_sumList,
+                                rain_sumList,
+                                showers_sumList,
+                                snowfall_sumList,
+                                precipitation_hoursList
+                        )
+                );
             }
             else {
                 System.out.println("HTTP Request failed with response code: " + response.getStatusLine().getStatusCode());
@@ -112,13 +185,5 @@ public class Forecaster {
             e.printStackTrace();
             return null;
         }
-    }
-
-    private <T> List<T> jsonArrayToList(JSONArray jsonArray) {
-        List<T> list = new ArrayList<>();
-        for (int i = 0; i < jsonArray.length(); i++) {
-            list.add((T) jsonArray.get(i));
-        }
-        return list;
     }
 }
