@@ -16,160 +16,126 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gvlocke.weatherapp.MainSceneController">
    <VBox layoutX="17.0" layoutY="10.899999618530273" minHeight="504.0" minWidth="658.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0">
-      <children>
-         <VBox prefHeight="472.0" prefWidth="657.0" spacing="10.0" VBox.vgrow="ALWAYS">
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-               <VBox prefHeight="108.0" prefWidth="202.0" HBox.hgrow="ALWAYS">
-                  <Label fx:id="timeLabel" prefHeight="18.0" prefWidth="235.0" text="Current Time" />
-               </VBox>
-               <VBox alignment="CENTER" prefHeight="21.0" prefWidth="223.0" HBox.hgrow="ALWAYS">
-                  <Label fx:id="locationLabel" alignment="CENTER" prefHeight="18.0" text="Label" />
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <ImageView fx:id="weatherIcon" fitHeight="54" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
-                     <Label fx:id="currentTemperatureLabel" alignment="CENTER" prefHeight="54.0" prefWidth="88.0" text="##º">
-                        <font>
-                           <Font size="43.0" />
-                        </font>
-                     </Label>
-                  </HBox>
-                  <Label fx:id="weatherCodeLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="14.0" text="Condition" textAlignment="CENTER" />
-                  <Label fx:id="hiLowLabel" alignment="CENTER" prefHeight="18.0" text="Hi/Lo" textAlignment="CENTER" />
-               </VBox>
-               <HBox alignment="TOP_RIGHT" prefHeight="108.0" prefWidth="193.0" HBox.hgrow="ALWAYS">
-                  <TextField fx:id="locationTextField" prefHeight="26.0" prefWidth="165.0" promptText="Enter a Location..." HBox.hgrow="NEVER" />
-                  <Button mnemonicParsing="false" onAction="#searchLocation" prefHeight="28.0" prefWidth="80.0" text="Search" HBox.hgrow="NEVER" />
+      <VBox prefHeight="472.0" prefWidth="657.0" spacing="10.0" VBox.vgrow="ALWAYS">
+         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <VBox prefHeight="108.0" prefWidth="202.0" HBox.hgrow="ALWAYS">
+               <Label fx:id="timeLabel" prefHeight="18.0" prefWidth="235.0" text="Current Time" />
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="21.0" prefWidth="223.0" HBox.hgrow="ALWAYS">
+               <Label fx:id="locationLabel" alignment="CENTER" prefHeight="18.0" text="Label" />
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <ImageView fx:id="weatherIcon" fitHeight="54" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="currentTemperatureLabel" alignment="CENTER" prefHeight="54.0" prefWidth="88.0" text="##º">
+                     <font>
+                        <Font size="43.0" />
+                     </font>
+                  </Label>
                </HBox>
+               <Label fx:id="weatherCodeLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="14.0" text="Condition" textAlignment="CENTER" />
+               <Label fx:id="hiLowLabel" alignment="CENTER" prefHeight="18.0" text="Hi/Lo" textAlignment="CENTER" />
+            </VBox>
+            <HBox alignment="TOP_RIGHT" prefHeight="108.0" prefWidth="193.0" HBox.hgrow="ALWAYS">
+               <TextField fx:id="locationTextField" prefHeight="26.0" prefWidth="165.0" promptText="Enter a Location..." HBox.hgrow="NEVER" />
+               <Button mnemonicParsing="false" onAction="#searchLocation" prefHeight="28.0" prefWidth="80.0" text="Search" HBox.hgrow="NEVER" />
             </HBox>
-            <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="85.0" prefHeight="110.0" prefWidth="657.0" vbarPolicy="NEVER" vmax="0.0">
-              <content>
-                  <HBox fx:id="scrollBox" spacing="10.0" />
-              </content>
-            </ScrollPane>
-            <HBox prefHeight="297.0" prefWidth="657.0" spacing="5.0">
-               <children>
-                  <BorderPane fx:id="SevenDayForecastBorderPane">
-                     <center>
-                        <VBox fx:id="SevenDayForecastBox">
-                           <children>
-                              <HBox />
-                           </children>
-                        </VBox>
-                     </center>
-                  </BorderPane>
-                  <FlowPane hgap="5.0" prefHeight="200.0" prefWidth="200.0" vgap="5.0">
-                     <children>
-                        <BorderPane style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: grey; -fx-border-width: 2;">
-                           <center>
-                              <VBox BorderPane.alignment="TOP_CENTER">
-                                 <children>
-                                    <HBox>
-                                       <children>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../windy.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label text="Wind" />
-                                       </children>
-                                    </HBox>
-                                    <HBox>
-                                       <children>
-                                          <VBox>
-                                             <children>
-                                                <HBox spacing="5.0">
-                                                   <children>
-                                                      <Label fx:id="windSpeedLabel" alignment="BOTTOM_LEFT" text="#">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <VBox alignment="BOTTOM_LEFT">
-                                                         <children>
-                                                            <Label fx:id="windSpeedUnitsLabel" text="Unit" />
-                                                            <Label text="Wind" />
-                                                         </children>
-                                                      </VBox>
-                                                   </children>
-                                                   <padding>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </padding>
-                                                </HBox>
-                                                <HBox layoutX="10.0" layoutY="10.0" spacing="5.0">
-                                                   <children>
-                                                      <Label fx:id="windGustsLabel" text="#">
-                                                         <font>
-                                                            <Font size="40.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <VBox alignment="BOTTOM_LEFT">
-                                                         <children>
-                                                            <Label fx:id="windGustsUnitsLabel" text="Unit" />
-                                                            <Label text="Gusts" />
-                                                         </children>
-                                                      </VBox>
-                                                   </children>
-                                                   <padding>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                   </padding>
-                                                </HBox>
-                                             </children>
-                                          </VBox>
-                                          <VBox alignment="CENTER">
-                                             <children>
-                                                <Label text="Direction" />
-                                                <Label fx:id="windDirectionLabel" alignment="CENTER" text="SSW">
-                                                   <font>
-                                                      <Font size="38.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </center>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </BorderPane>
-                        <BorderPane style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: grey; -fx-border-width: 2;">
-                           <center>
-                              <VBox BorderPane.alignment="TOP_CENTER">
-                                 <children>
-                                    <HBox>
-                                       <children>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../rain.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label text="Precipitation" />
-                                       </children>
-                                    </HBox>
-                                    <Label fx:id="precipitationLabel" text="#">
-                                       <font>
-                                          <Font size="40.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="in last 24h" />
-                                 </children>
-                              </VBox>
-                           </center>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </BorderPane>
-                     </children>
-                  </FlowPane>
-               </children>
-            </HBox>
-         </VBox>
-         <HBox alignment="BOTTOM_RIGHT" prefHeight="30.0" prefWidth="657.0">
-            <children>
-               <Button mnemonicParsing="false" onAction="#switchTempUnit" prefHeight="30.0" prefWidth="64.0" text="Fº/Cº" />
-            </children>
          </HBox>
-      </children>
+         <ScrollPane hbarPolicy="NEVER" minViewportHeight="85.0" prefHeight="85.0" vbarPolicy="NEVER" vmax="0.0">
+            <HBox fx:id="scrollBox" spacing="10.0" />
+         </ScrollPane>
+         <HBox prefHeight="297.0" prefWidth="657.0" spacing="5.0">
+            <BorderPane fx:id="SevenDayForecastBorderPane">
+               <center>
+                  <VBox fx:id="SevenDayForecastBox">
+                     <HBox />
+                  </VBox>
+               </center>
+            </BorderPane>
+            <FlowPane hgap="5.0" prefHeight="200.0" prefWidth="200.0" vgap="5.0">
+               <BorderPane style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: grey; -fx-border-width: 2;">
+                  <center>
+                     <VBox BorderPane.alignment="TOP_CENTER">
+                        <HBox>
+                           <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <Image url="@../../../windy.png" />
+                           </ImageView>
+                           <Label text="Wind" />
+                        </HBox>
+                        <HBox>
+                           <VBox>
+                              <HBox spacing="5.0">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <Label fx:id="windSpeedLabel" alignment="BOTTOM_LEFT" text="#">
+                                    <font>
+                                       <Font size="40.0" />
+                                    </font>
+                                 </Label>
+                                 <VBox alignment="BOTTOM_LEFT">
+                                    <Label fx:id="windSpeedUnitsLabel" text="Unit" />
+                                    <Label text="Wind" />
+                                 </VBox>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="10.0" spacing="5.0">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <Label fx:id="windGustsLabel" text="#">
+                                    <font>
+                                       <Font size="40.0" />
+                                    </font>
+                                 </Label>
+                                 <VBox alignment="BOTTOM_LEFT">
+                                    <Label fx:id="windGustsUnitsLabel" text="Unit" />
+                                    <Label text="Gusts" />
+                                 </VBox>
+                              </HBox>
+                           </VBox>
+                           <VBox alignment="CENTER">
+                              <Label text="Direction" />
+                              <Label fx:id="windDirectionLabel" alignment="CENTER" text="SSW">
+                                 <font>
+                                    <Font size="38.0" />
+                                 </font>
+                              </Label>
+                           </VBox>
+                        </HBox>
+                     </VBox>
+                  </center>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </BorderPane>
+               <BorderPane style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: grey; -fx-border-width: 2;">
+                  <center>
+                     <VBox BorderPane.alignment="TOP_CENTER">
+                        <HBox>
+                           <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <Image url="@../../../rain.png" />
+                           </ImageView>
+                           <Label text="Precipitation" />
+                        </HBox>
+                        <HBox alignment="BOTTOM_LEFT">
+                           <Label fx:id="precipitationLabel" text="#">
+                              <font>
+                                 <Font size="40.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="precipitationUnitsLabel" text="Unit" />
+                        </HBox>
+                        <Label text="in last 24h" />
+                     </VBox>
+                  </center>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </BorderPane>
+            </FlowPane>
+         </HBox>
+      </VBox>
+      <HBox alignment="BOTTOM_RIGHT" fillHeight="false" prefHeight="30.0" prefWidth="657.0" spacing="10.0">
+         <Button layoutX="604.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchPrecipitationUnit" prefHeight="30.0" prefWidth="79.0" text="inch/mm" HBox.hgrow="NEVER" />
+         <Button layoutX="604.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchTempUnit" prefHeight="30.0" prefWidth="64.0" text="Fº/Cº" HBox.hgrow="NEVER" />
+      </HBox>
    </VBox>
 </AnchorPane>

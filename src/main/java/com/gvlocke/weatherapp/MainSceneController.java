@@ -66,6 +66,9 @@ public class MainSceneController {
     @FXML
     private Label precipitationLabel;
 
+    @FXML
+    private Label precipitationUnitsLabel;
+
     private Weather weather;
     private Geolocation location;
     private String timestring;
@@ -126,12 +129,24 @@ public class MainSceneController {
         if (geolocation != null) {
             this.location = geolocation;
             this.locationstring = geolocation.city() + ", " + geolocation.regionName() + ", " + geolocation.countryCode();
-            if (Objects.equals(this.weather.getCurrent_units().temperature_2m(), "°C")) {
-                this.weather = new Forecaster().getWeather(this.location, "mph", "celsius", "inch");
-            }
-            else {
-                this.weather = new Forecaster().getWeather(this.location);
-            }
+            String temp_unit;
+            String wind_unit;
+            String precipitation_unit;
+            temp_unit = switch (this.weather.getCurrent_units().temperature_2m()) {
+                case "°C" -> "celsius";
+                case null, default -> "fahrenheit";
+            };
+            wind_unit = switch (this.weather.getCurrent_units().windspeed_10m()) {
+                case "km/h" -> "kmh";
+                case "m/s" -> "ms";
+                case "kn" -> "kn";
+                case null, default -> "mph";
+            };
+            precipitation_unit = switch (this.weather.getCurrent_units().precipitation()) {
+                case "mm" -> "mm";
+                case null, default -> "inch";
+            };
+            this.weather = new Forecaster().getWeather(geolocation, wind_unit, temp_unit, precipitation_unit);
             this.timestring = weather.getCurrent().getTime();
             displayWeatherGUIComponents();
         }
@@ -218,7 +233,7 @@ public class MainSceneController {
             SevenDayForecastBox.setSpacing(10); // Set the desired spacing
             Label info_label = new Label();
             ImageView weather_icon = new ImageView();
-            String iconPath = getIconPath(weather.getDaily().weather_code().get(i), weather.getHourly().getAverageWindspeed_10m(), getIsDay(i));
+            String iconPath = getIconPath(weather.getDaily().weather_code().get(i), weather.getHourly().getAverageWindspeed_10m(), 1);
             Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(iconPath)));
             weather_icon.setImage(image);
             weather_icon.setFitHeight(20);
@@ -301,12 +316,13 @@ public class MainSceneController {
     }
 
     public void initializePrecipitationModule() {
-
         if (Objects.equals(weather.getCurrent_units().precipitation(), "inch")) {
-            precipitationLabel.setText(weather.getDaily().precipitation_sum().get(0).intValue() + "\"");
+            precipitationLabel.setText(String.valueOf(weather.getDaily().precipitation_sum().get(0).intValue()));
+            precipitationUnitsLabel.setText("in");
         }
         else if (Objects.equals(weather.getCurrent_units().precipitation(), "mm")) {
-            precipitationLabel.setText(weather.getDaily().precipitation_sum().get(0).intValue() + "mm");
+            precipitationLabel.setText(String.valueOf(weather.getDaily().precipitation_sum().get(0).intValue()));
+            precipitationUnitsLabel.setText("mm");
         }
     }
     public void switchTempUnit() {
@@ -320,6 +336,34 @@ public class MainSceneController {
         }
         if (Objects.equals(this.weather.getCurrent_units().temperature_2m(), "°C")) {
             this.weather = forecaster.getWeather(this.location, "mph", "fahrenheit", "inch");
+            displayWeatherGUIComponents();
+        }
+    }
+    public void switchPrecipitationUnit() {
+        Forecaster forecaster = new Forecaster();
+        String temp_unit = this.weather.getCurrent_units().temperature_2m();
+        String wind_unit = this.weather.getCurrent_units().windspeed_10m();
+        if (Objects.equals(temp_unit, "°F")) {
+            temp_unit = "fahrenheit";
+        }
+        else {
+            temp_unit = "celsius";
+        }
+        if (Objects.equals(wind_unit, "mp/h")) {
+            wind_unit = "mph";
+        } else if (Objects.equals(wind_unit, "km/h")) {
+            wind_unit = "kmph";
+        } else if (Objects.equals(wind_unit, "m/s")) {
+            wind_unit = "ms";
+        }
+        if (Objects.equals(this.weather.getCurrent_units().precipitation(), "mm")) {
+            this.weather = forecaster.getWeather(this.location, wind_unit, temp_unit, "inch");
+            displayWeatherGUIComponents();
+            // exit the function early to prevent the next if statement from running
+            return;
+        }
+        if (Objects.equals(this.weather.getCurrent_units().precipitation(), "inch")) {
+            this.weather = forecaster.getWeather(this.location, wind_unit, temp_unit, "mm");
             displayWeatherGUIComponents();
         }
     }
